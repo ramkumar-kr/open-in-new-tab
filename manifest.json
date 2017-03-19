@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "name": "Open in new tab",
+  "version": "0.0.1",
+  "author": "Ramkumar K R",
+  "description":"Open links in new tab",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "<all_urls>"
+  ],
+	"content_scripts": [
+		{
+				"matches": ["<all_urls>"],
+				"js": ["tabify.js"]
+		}
+	],
+  "options_ui": {
+    "page": "options/options.html"
+  },
+  "icons": {
+    "52": "icon.png"
+  }
+}
