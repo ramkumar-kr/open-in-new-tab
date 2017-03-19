@@ -7,9 +7,6 @@ function addTarget() {
 }
 
 function filter(hostname) {
-	var obj = {};
-	obj[hostname] = hostname;
-	console.log(obj);
 	chrome.storage.local.get(null, function(items){
 		for(var item in items){
 			console.log(item);
