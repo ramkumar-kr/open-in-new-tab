@@ -3,7 +3,7 @@
   "name": "Open in new tab",
   "version": "0.0.1",
   "author": "Ramkumar K R",
-  "description":"Open links in new tab",
+  "description":"Open links in new tab for a list of specified domains. Useful for sites such as hackernews",
   "permissions": [
     "activeTab",
     "storage",
