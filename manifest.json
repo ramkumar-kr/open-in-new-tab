@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Open in new tab",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "Ramkumar K R",
   "description": "Open links in new tab for a list of specified domains. Useful for sites such as hackernews",
   "permissions": [
