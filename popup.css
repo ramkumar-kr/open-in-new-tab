@@ -1,0 +1,50 @@
+.true{
+  background-color: lightgreen;
+  font-weight: bold;
+  padding: 1px;
+  border: 1px solid lightgreen;
+}
+
+.false{
+  background-color: orangered;
+  font-weight: bold;
+  padding: 1px;
+  border: 1px solid orangered;
+}
+
+.popup{
+  padding: 5px;
+}
+
+table {
+    border-collapse: collapse;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 240px;
+}
+
+td{
+  border: 1px solid black;
+}
+
+td.description {
+  width: 30%;
+}
+
+td.data {
+  width: 70%;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.toggle-button{
+  width: 100%;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 24px;
+  background-color: turquoise;
+  border: 1px solid turquoise;
+}

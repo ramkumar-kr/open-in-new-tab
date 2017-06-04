@@ -1,20 +1,31 @@
 {
   "manifest_version": 2,
   "name": "Open in new tab",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Ramkumar K R",
-  "description":"Open links in new tab for a list of specified domains. Useful for sites such as hackernews",
+  "description": "Open links in new tab for a list of specified domains. Useful for sites such as hackernews",
   "permissions": [
     "activeTab",
     "storage",
     "<all_urls>"
   ],
-	"content_scripts": [
-		{
-				"matches": ["<all_urls>"],
-				"js": ["tabify.js"]
-		}
-	],
+  "browser_action": {
+    "browser_style": false,
+    "default_icon": {
+      "52": "icon.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "tabify.js"
+      ]
+    }
+  ],
   "options_ui": {
     "page": "options/options.html"
   },
