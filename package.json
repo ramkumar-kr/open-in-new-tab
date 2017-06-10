@@ -1,13 +1,17 @@
 {
   "name": "open-in-new-tab",
-  "version": "0.0.3",
+  "version": "0.0.6",
   "description": "Open links in new tab for a list of specified domains. Useful for sites such as hackernews",
   "main": "background.js",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "webpack --watch",
+    "chromium": "npm run watch & chromium-browser --load-extension=.",
+    "opera": "npm run watch & opera --load-extension=.",
+    "firefox": "npm run watch & web-ext run",
+    "production": "webpack -p && web-ext build -i package.json webpack.config.js src docs .gitignore README.md"
   },
   "repository": {
     "type": "git",
