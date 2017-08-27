@@ -6,7 +6,7 @@ var Popup = function (props) {
   return (
     <div>
       <form onSubmit={onSubmit}>
-        <h2>{getHostname(props.url)}</h2>
+        <h2 className="centered">{getHostname(props.url)}</h2>
         <hr/>
         <input type="hidden" id="tabId" value={props.tabId} />
         <input type="hidden" id="hostname" value={getHostname(props.url)} />
@@ -16,7 +16,22 @@ var Popup = function (props) {
   );
 }
 
-var Button = function (props) {
+var Explanation = function (props) {
+  return(
+    <div className="centered" >
+      <p> The extension is active on this page due to a wildcard option.</p>
+      <p> The wildcard option active is <b>{props.regex}</b></p>
+      <p> Please use the options page to wildcards </p>
+      <button onClick={props.onClick}> Open Options page </button>
+    </div>
+  )
+}
+
+var openOptions = function () {
+  chrome.runtime.openOptionsPage()
+}
+
+var SwitchButton = function (props) {
   return (
     <div>
       <input type="hidden" id="domainEnabled" value={props.checked} />
@@ -67,12 +82,24 @@ function showPopup(tab) {
     if (items[hostname] == hostname) {
       preferred = true;
     }
-    ReactDom.render(<Button onClick={onSubmit} checked={preferred} />, document.getElementById("buttonholder"));
+    else {
+      for (var item in items) {
+        var re = new RegExp('^'+item.replace('*','.*')+'$');
+        if (re.test(hostname)){
+          ReactDom.render(<Explanation regex={item} onClick={openOptions}/>, document.getElementById("buttonholder"));
+          return(true);
+        }
+      }
+    }
+
+    ReactDom.render(<SwitchButton onClick={onSubmit} checked={preferred} />, document.getElementById("buttonholder"));
   });
 }
 
 function init() {
-  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) { showPopup(tabs[0]); });
+  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) { 
+    showPopup(tabs[0]); 
+  });
 }
 
 document.addEventListener('DOMContentLoaded', init);
