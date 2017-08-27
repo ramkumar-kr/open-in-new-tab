@@ -9,8 +9,8 @@ function addTarget() {
 function filter(hostname) {
 	chrome.storage.local.get(null, function(items){
 		for(var item in items){
-			var re = new RegExp('^'+item.replace('*','.*')+'$');
-			if (re.test(hostname)){
+		  var re = new RegExp( '^'+item.replace('*','.*')+'$' );
+			if(re.test(hostName)){
 				addTarget();
 			}
 		}
