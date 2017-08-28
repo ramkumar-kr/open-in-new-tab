@@ -75,3 +75,8 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+/* Explanation */
+.centered {
+  text-align: center;
+}
