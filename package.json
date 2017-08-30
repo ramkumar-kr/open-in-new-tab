@@ -1,6 +1,6 @@
 {
   "name": "open-in-new-tab",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Open links in new tab for a list of specified domains. Useful for sites such as hackernews",
   "main": "background.js",
   "directories": {
