@@ -1,6 +1,5 @@
 document.getElementById("add").addEventListener("click", function(){
   var hostname = document.getElementById("domain").value;
-  console.log(hostname);
   var items = {};
   items[hostname] = hostname;
   chrome.storage.local.set(items);
@@ -15,7 +14,6 @@ chrome.storage.local.get(null, function(items){
     button.value = item;
     button.setAttribute("host", item);
     button.addEventListener('click', function(){
-      console.log(this);
       chrome.storage.local.remove(this.getAttribute('host'));
       window.location.reload();
     });
