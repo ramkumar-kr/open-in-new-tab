@@ -10,7 +10,7 @@ function filter(hostname) {
 	chrome.storage.local.get(null, function(items){
 		for(var item in items){
 		  var re = new RegExp( '^'+item.replace('*','.*')+'$' );
-			if(re.test(hostName)){
+			if(re.test(hostname)){
 				addTarget();
 			}
 		}
