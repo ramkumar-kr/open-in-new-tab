@@ -21,7 +21,7 @@ var Explanation = function (props) {
     <div className="centered" >
       <p> The extension is active on this page due to a wildcard option.</p>
       <p> The wildcard option active is <b>{props.regex}</b></p>
-      <p> Please use the options page to wildcards </p>
+      <p> Please use the options page to manage wildcards </p>
       <button onClick={props.onClick}> Open Options page </button>
     </div>
   )
