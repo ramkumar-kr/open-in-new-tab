@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head></head>
-  <body>
+
+<head></head>
+
+<body>
+  <div>
+    <form>
+      <input type="checkbox" id="bookmark">
+      <label for="bookmark">Open bookmarks in new tabs</label>
+    </form>
+  </div>
+  <div>
     <h3>List of hostnames added</h3>
     <ul id="list">
 
     </ul>
     <form>
       <label for="domain">Enter the hostname</label>
-      <input type="text" id="domain"/>
-      <input type="submit" value="Add" id="add"/>
+      <input type="text" id="domain" />
+      <input type="submit" value="Add" id="add" />
     </form>
-    <script src="options.js"></script>
-  </body>
+  </div>
+  <script src="options.js"></script>
+</body>
+
 </html>

@@ -5,6 +5,11 @@ document.getElementById("add").addEventListener("click", function(){
   chrome.storage.local.set(items);
 });
 
+
+document.getElementById("bookmark").addEventListener("change", (e) => {
+    browser.browserSettings.openBookmarksInNewTabs.set({value: e.target.checked});
+});
+
 chrome.storage.local.get(null, function(items){
   for(var item in items){
     var listItem = document.createElement("span");

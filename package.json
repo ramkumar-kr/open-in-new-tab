@@ -11,7 +11,7 @@
     "chromium": "npm run watch & chromium-browser --load-extension=.",
     "opera": "npm run watch & opera --load-extension=.",
     "firefox": "npm run watch & web-ext run",
-    "production": "webpack -p && web-ext build -i package.json webpack.config.js src docs .gitignore README.md"
+    "production": "webpack -p && web-ext build -i package.json webpack.config.js src docs .gitignore README.md .git .history node_modules"
   },
   "repository": {
     "type": "git",
