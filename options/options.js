@@ -10,6 +10,11 @@ document.getElementById("bookmark").addEventListener("change", (e) => {
     browser.browserSettings.openBookmarksInNewTabs.set({value: e.target.checked});
 });
 
+browser.browserSettings.openBookmarksInNewTabs.get({}).then((setting) => {
+  document.getElementById("bookmark").checked = setting.value;
+});
+
+
 chrome.storage.local.get(null, function(items){
   for(var item in items){
     var listItem = document.createElement("span");
