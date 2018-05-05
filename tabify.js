@@ -4,9 +4,9 @@ function addTarget(hostname) {
 		if(e.getAttribute("href") !== "#") {
 			e.setAttribute("target", "_blank");
 			e.setAttribute("rel", "nofollow");
-			addSpecialTweaks(e, hostname);
 		}
 	}
+	addSpecialTweaks(e, hostname);
 }
 
 function filter(hostname) {
@@ -23,8 +23,9 @@ function filter(hostname) {
 function addSpecialTweaks(element, hostname){
 	var regex = new RegExp('youtube');
 	if(regex.test(hostname)){
-		element.addEventListener('click', openinNew);
-		element.removeAttribute("target");
+		// element.addEventListener('click', openinNew, true);
+		// element.removeAttribute("onclick");
+		window.addEventListener("click", openinNew);
 	}
 }
 
@@ -41,10 +42,12 @@ function clone(element) {
 }
 
 function openinNew(e) {
-	e.stopPropagation();
 	e.preventDefault();
-	window.open(this.href, "_blank");
-	window.stop();
+	const targetURL = e.target.closest("a").getAttribute("href");
+	window.open(targetURL, "_blank");
+	e.stopPropagation();
+	history.back();
+	return false
 }
 
 var url = new URL(window.location.href);
