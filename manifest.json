@@ -1,14 +1,16 @@
 {
   "manifest_version": 2,
   "name": "Open in new tab",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "author": "Ramkumar K R",
-  "description": "Open links in new tab for a list of specified domains. Useful for sites such as hackernews",
+  "description": "Open links in new tab for a list of specified domains. Also open bookmarks in a new tab",
   "permissions": [
     "activeTab",
     "storage",
-    "browserSettings",
     "<all_urls>"
+  ],
+  "optional_permissions": [
+    "browserSettings"
   ],
   "browser_action": {
     "browser_style": false,
@@ -33,7 +35,8 @@
   ],
   "options_ui": {
     "page": "options/options.html",
-    "browser_style": true
+    "browser_style": true,
+    "open_in_tab": true
   },
   "icons": {
     "52": "icon.png"

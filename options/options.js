@@ -10,9 +10,21 @@ document.getElementById("bookmark").addEventListener("change", (e) => {
     browser.browserSettings.openBookmarksInNewTabs.set({value: e.target.checked});
 });
 
-browser.browserSettings.openBookmarksInNewTabs.get({}).then((setting) => {
-  document.getElementById("bookmark").checked = setting.value;
-});
+document.getElementById("requestBtn").addEventListener("click", getBrowserSettingPermission);
+
+document.getElementById("revokeBtn").addEventListener("click", revokeBrowserSettingPermission);
+
+hasBrowserSettingPermission().then((granted) => {
+  if (granted) {
+    browser.browserSettings.openBookmarksInNewTabs.get({}).then((setting) => {
+      document.getElementById("bookmark").checked = setting.value;
+    });
+    document.getElementById("revokeBtn").className = "";
+  } else {
+    document.getElementById("bookmarkForm").className = "hidden";
+    document.getElementById("requestBtn").className = "";
+  }
+})
 
 
 chrome.storage.local.get(null, function(items){
@@ -36,3 +48,23 @@ chrome.storage.local.get(null, function(items){
   }
 });
 
+async function hasBrowserSettingPermission() {
+  const granted = await browser.permissions.contains({ permissions: ["browserSettings"] });
+  return granted;
+}
+
+async function getBrowserSettingPermission(event) {
+  try {
+    const granted = await browser.permissions.request({permissions: ["browserSettings"]});
+    return granted;
+  } catch (e) {
+    return false
+  } finally {
+    window.location.reload();
+  }
+}
+
+async function revokeBrowserSettingPermission(event) {
+  const granted = await browser.permissions.remove({ permissions: ["browserSettings"] });
+  window.location.reload();
+}

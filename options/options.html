@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
 
-<head></head>
+<head>
+  <style>
+    .hidden{ display: none;}
+    body{
+      border: 1px dotted black;
+      padding: 5px;
+    }
+  </style>
+  <title>Preferences - Open in new tab</title>
+</head>
 
 <body>
+  <h1>Preferences - Open in new tab</h1>
   <div>
-    <form>
+    <form id="bookmarkForm">
       <input type="checkbox" id="bookmark">
       <label for="bookmark">Open bookmarks in new tabs</label>
     </form>
+    <button class="hidden" id="requestBtn"> Provide Browser setting permission </button>
+    <button class="hidden" id="revokeBtn"> Revoke Browser setting permission </button>
   </div>
   <div>
     <h3>List of hostnames added</h3>
