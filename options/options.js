@@ -10,6 +10,18 @@ document.getElementById("bookmark").addEventListener("change", (e) => {
     browser.browserSettings.openBookmarksInNewTabs.set({value: e.target.checked});
 });
 
+document.getElementById("searchBar").addEventListener("change", (e) => {
+  browser.browserSettings.openSearchResultsInNewTabs.set({value: e.target.checked});
+});
+
+document.getElementById("urlBar").addEventListener("change", (e) => {
+  browser.browserSettings.openUrlbarResultsInNewTabs.set({value: e.target.checked});
+});
+
+document.getElementById("newTabPosition").addEventListener("change", (e) => {
+  browser.browserSettings.newTabPosition.set({value: document.getElementById("newTabPosition").value});
+});
+
 document.getElementById("requestBtn").addEventListener("click", getBrowserSettingPermission);
 
 document.getElementById("revokeBtn").addEventListener("click", revokeBrowserSettingPermission);
@@ -19,9 +31,23 @@ hasBrowserSettingPermission().then((granted) => {
     browser.browserSettings.openBookmarksInNewTabs.get({}).then((setting) => {
       document.getElementById("bookmark").checked = setting.value;
     });
+
+    browser.browserSettings.openSearchResultsInNewTabs.get({}).then((setting) => {
+      document.getElementById("searchBar").checked = setting.value;
+    });
+
+    browser.browserSettings.openUrlbarResultsInNewTabs.get({}).then((setting) => {
+      document.getElementById("urlBar").checked = setting.value;
+    });
+
+    browser.browserSettings.newTabPosition.get({}).then((setting) => {
+      document.getElementById("newTabPosition").value = setting.value;
+    });
+
+
     document.getElementById("revokeBtn").className = "";
   } else {
-    document.getElementById("bookmarkForm").className = "hidden";
+    document.getElementById("browserSettingForm").className = "hidden";
     document.getElementById("requestBtn").className = "";
   }
 })

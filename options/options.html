@@ -3,22 +3,45 @@
 
 <head>
   <style>
-    .hidden{ display: none;}
-    body{
-      border: 1px dotted black;
-      padding: 5px;
+    .hidden {
+      display: none;
+    }
+
+    #newTabPosition {
+      margin-bottom: 10px;
     }
   </style>
   <title>Preferences - Open in new tab</title>
 </head>
 
-<body>
-  <h1>Preferences - Open in new tab</h1>
+<body class="bordered-box">
+
   <div>
-    <form id="bookmarkForm">
-      <input type="checkbox" id="bookmark">
-      <label for="bookmark">Open bookmarks in new tabs</label>
+    <form class="bordered-box" id="browserSettingForm">
+      <h2>Modify browser settings to</h2>
+      <div>
+        <input type="checkbox" id="bookmark">
+        <label for="bookmark">Open bookmarks in new tabs</label>
+      </div>
+      <div>
+        <input type="checkbox" id="searchBar">
+        <label for="searchBar">Open search bar results in new tabs (works only when firefox's search bar is used)</label>
+      </div>
+      <div>
+        <input type="checkbox" id="urlBar">
+        <label for="urlBar">Open URL bar search results in new tabs</label>
+      </div>
+
+      <div>
+        <label for="newTabPosition">Opening position of new tabs</label>
+        <select id="newTabPosition">
+          <option value="afterCurrent">Next to the current tab</option>
+          <option value="relatedAfterCurrent">Child tabs open next to the current tab</option>
+          <option value="atEnd">End of the tab strip</option>
+        </select>
+      </div>
     </form>
+    <div></div>
     <button class="hidden" id="requestBtn"> Provide Browser setting permission </button>
     <button class="hidden" id="revokeBtn"> Revoke Browser setting permission </button>
   </div>
@@ -32,6 +55,25 @@
       <input type="text" id="domain" />
       <input type="submit" value="Add" id="add" />
     </form>
+  </div>
+
+  <div>
+    <h3>FAQ</h3>
+    <ul style="list-style-type: none">
+      <li>
+        <p>
+          <b>Why do you need browser setting permission?</b>
+          <br/>
+          Browser setting permission allows the extension to set browser settings such as opening bookmarks in new tabs, new tab position etc.,
+        </p>
+      </li>
+      <li>
+        <p>
+          <b>What are Child tabs?</b>
+          <br/> Tabs opened from a link in the current tab are called child tabs
+        </p>
+      </li>
+    </ul>
   </div>
   <script src="options.js"></script>
 </body>
