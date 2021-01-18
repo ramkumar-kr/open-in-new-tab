@@ -7,7 +7,7 @@ Useful for websites such as hackernews where you would ideally like to open link
 
 # Install
 
-[![Available on the chrome web store](https://developer.chrome.com/webstore/images/ChromeWebStore_BadgeWBorder_v2_206x58.png)](https://chrome.google.com/webstore/detail/open-in-new-tab/cplillmhmcegjlhcbedmgmalbgjpmlkh?hl=en-US&gl=IN)
+[![Available on the chrome web store](https://storage.googleapis.com/chrome-gcs-uploader.appspot.com/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/UV4C4ybeBTsZt43U4xis.png)](https://chrome.google.com/webstore/detail/open-in-new-tab/cplillmhmcegjlhcbedmgmalbgjpmlkh?hl=en-US&gl=IN)
 
 [![Available on addons.mozilla.org](https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_1.png)](https://addons.mozilla.org/en-US/firefox/addon/open-in-new-tab-domain/)
 
